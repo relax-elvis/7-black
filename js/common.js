@@ -224,6 +224,9 @@
 
 	$('header nav a[href^="#"], footer .footer_bottom .company-information a[href^="#"]').click(function(e) {
 		e.preventDefault();
+		if($(window).width() < 999) {
+			$('.btn-menu.active').trigger('click');
+		}
 		var __this;
 		if($(this)[0].nodeName == 'BUTTON') {
 			__this = '#' + $(this).attr('data-href');
@@ -301,7 +304,7 @@
 		}
 	});
 
-	if($(window).width() < 675) {
+	if($(window).width() < 999) {
 		$('header .btn-menu').click(function() {
 			const _this = $(this);
 			if(_this.hasClass('active')) {
